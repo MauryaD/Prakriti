@@ -1,4 +1,4 @@
-package model;
+package com.example.springboot.model;
 
 public class PlantDetails {
     private Integer id;

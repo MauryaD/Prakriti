@@ -1,6 +1,6 @@
-package repositories;
+package com.example.springboot.repositories;
 
-import model.PlantDetails;
+import com.example.springboot.model.PlantDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -29,13 +29,13 @@ public class PlantDetailsRepositoryImpl implements PlantDetailsRepository{
     @Override
     public PlantDetails getPlant(Integer id) {
         return jdbcTemplate.queryForObject(GET_PLANT_DETAILS,
-                new Object[] {id }, (rs, n) -> new PlantDetails(rs.getInt("id"),
+                new Object[] {id}, (rs, n) -> new PlantDetails(rs.getInt("id"),
                         rs.getString("name"), rs.getString("species")));
     }
 
     @Override
     public List<PlantDetails> getAllPlants() {
-        return jdbcTemplate.query(GET_PLANT_DETAILS, (rs,n) -> new PlantDetails(rs.getInt("id"),
+        return jdbcTemplate.query(GET_ALL_PLANT_DETAILS, (rs,n) -> new PlantDetails(rs.getInt("id"),
                 rs.getString("name"), rs.getString("species")));
 
     }

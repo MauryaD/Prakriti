@@ -1,11 +1,11 @@
-package Controller;
+package com.example.springboot.Controller;
 
-import model.PlantDetails;
+import com.example.springboot.model.PlantDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
-import services.PlantService;
+import com.example.springboot.services.PlantService;
 
 import java.util.List;
 

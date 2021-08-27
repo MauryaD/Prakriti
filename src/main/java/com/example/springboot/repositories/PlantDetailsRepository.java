@@ -1,6 +1,6 @@
-package repositories;
+package com.example.springboot.repositories;
 
-import model.PlantDetails;
+import com.example.springboot.model.PlantDetails;
 
 import java.util.List;
 
