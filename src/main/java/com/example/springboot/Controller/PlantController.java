@@ -2,9 +2,7 @@ package com.example.springboot.Controller;
 
 import com.example.springboot.model.PlantDetails;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import com.example.springboot.services.PlantService;
 
 import java.util.List;
@@ -22,4 +20,7 @@ public class PlantController {
     public List<PlantDetails> getAllPlantDetails(){
         return plantService.getAllPlants();
     }
+
+    @DeleteMapping("/plants/{id}")
+    public void deletePlant(@PathVariable Integer id){ plantService.deletePlantDetails(id);}
 }

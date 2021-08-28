@@ -21,4 +21,8 @@ public class PlantService {
     public List<PlantDetails> getAllPlants(){
         return plantDetailsRepository.getAllPlants();
     }
+
+    public void deletePlantDetails(Integer id){
+        plantDetailsRepository.deletePlant(id);
+    }
 }

@@ -12,6 +12,7 @@ public class PlantDetailsRepositoryImpl implements PlantDetailsRepository{
 
     private static final String GET_ALL_PLANT_DETAILS = "SELECT * FROM PLANT_DETAILS";
     private static final String GET_PLANT_DETAILS = "SELECT * FROM PLANT_DETAILS WHERE id = ?";
+    private static final String DELETE_PLANT_DETAILS = "DELETE FROM PLANT_DETAILS WHERE id = ?";
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
@@ -42,6 +43,6 @@ public class PlantDetailsRepositoryImpl implements PlantDetailsRepository{
 
     @Override
     public void deletePlant(Integer id) {
-
+        jdbcTemplate.update(DELETE_PLANT_DETAILS, id);
     }
 }
