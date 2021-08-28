@@ -12,6 +12,8 @@ public class PlantDetailsRepositoryImpl implements PlantDetailsRepository{
 
     private static final String GET_ALL_PLANT_DETAILS = "SELECT * FROM PLANT_DETAILS";
     private static final String GET_PLANT_DETAILS = "SELECT * FROM PLANT_DETAILS WHERE id = ?";
+    private static final String CREATE_PLANT_DETAILS = "INSERT INTO PLANT_DETAILS(id, name, species) VALUES(?,?,?)";
+    private static final String UPDATE_PLANT_DETAILS = "UPDATE PLANT_DETAILS SET name = ?, species = ? WHERE id = ?";
     private static final String DELETE_PLANT_DETAILS = "DELETE FROM PLANT_DETAILS WHERE id = ?";
 
     @Autowired
@@ -19,12 +21,17 @@ public class PlantDetailsRepositoryImpl implements PlantDetailsRepository{
 
     @Override
     public Integer create(PlantDetails plantDetails) {
-        return null;
+        return jdbcTemplate.update(CREATE_PLANT_DETAILS,
+                plantDetails.getId(),
+                plantDetails.getName(),
+                plantDetails.getSpecies());
     }
 
-    @Override
-    public void update(PlantDetails plantDetails) {
-
+    public int update(PlantDetails plantDetails) {
+        return jdbcTemplate.update(UPDATE_PLANT_DETAILS,
+                plantDetails.getName(),
+                plantDetails.getSpecies(),
+                plantDetails.getId());
     }
 
     @Override

@@ -21,6 +21,16 @@ public class PlantController {
         return plantService.getAllPlants();
     }
 
+    @PostMapping("/plants")
+    public Integer insertPlant(@RequestBody PlantDetails plantDetails){
+        return plantService.addPlant(plantDetails);
+    }
+
+    @PutMapping("/plants/{id}")
+    public int updatePlant(@PathVariable Integer id, @RequestBody PlantDetails plantDetails){
+        return plantService.updatePlantDetails(plantDetails);
+    }
+
     @DeleteMapping("/plants/{id}")
     public void deletePlant(@PathVariable Integer id){ plantService.deletePlantDetails(id);}
 }

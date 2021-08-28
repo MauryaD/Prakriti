@@ -22,6 +22,14 @@ public class PlantService {
         return plantDetailsRepository.getAllPlants();
     }
 
+    public Integer addPlant(PlantDetails plantDetails){
+        return plantDetailsRepository.create(plantDetails);
+    }
+
+    public int updatePlantDetails(PlantDetails plantDetails){
+        return plantDetailsRepository.update(plantDetails);
+    }
+
     public void deletePlantDetails(Integer id){
         plantDetailsRepository.deletePlant(id);
     }
